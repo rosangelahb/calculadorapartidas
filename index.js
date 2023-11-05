@@ -1,48 +1,50 @@
-function classificacao(){
 
-let nome = document.getElementById("nome").value;
-//window.prompt("Digite o nome do Heroi:")
-let xp = document.getElementById("xp").value;
-//window.parseInt(prompt("Digite os pontos do heroi para saber a classificação:"))
+let pontos;
 
-let nivel;
+function classificacao(pontos){
+    let nome = document.getElementById("nome").value.toUpperCase();
+    let nivel;
 
-if(xp <= 1000){
-    nivel = "Ferro";
+    pontos = calculoPontos();
+    
+    if(pontos <= 10){
+        nivel = "Ferro";
+    
+    }else if(pontos >= 11 && pontos <= 20){
+        nivel = "Bronze";
+    
+    }else if(pontos >= 21 && pontos <= 50){
+        nivel = "Prata";
+    
+    }else if(pontos >= 51 && pontos <= 80){
+        nivel = "Ouro";
+    
+    }else if(pontos >= 81 && pontos <= 90){
+      nivel = "Diamante";
+    
+    }else if(pontos >= 91 && pontos <= 100){
+        nivel = "Lendário";
+    
+    }else if(pontos >= 101){
+        nivel = "Imortal"
+    
+    }else {
+        document.getElementById("result").textContent = `Digite um valor válido`;
+        return; // Adicionando um return para sair da função em caso de erro.
+    }
+    document.getElementById("result").innerHTML = `O jogador <span class="nome">${nome}</span> tem <span class="pontos">${pontos}</span> e está no nível <span class="nivel">${nivel}</span>`;
+    }
+    
+    function calculoPontos(){
+        let victory = parseInt(document.getElementById("victory").value); 
+        let defeat = parseInt(document.getElementById("defeat").value);  
+        pontos = victory - defeat;
+        return pontos;
+    }
 
-}else if(xp >= 1001 && xp <= 2000){
-    nivel = "Bronze";
-
-}else if(xp >= 2001 && xp <= 5000){
-    nivel = "Prata";
-
-}else if(xp >= 5001 && xp <= 6000){
-    nivel = "Diamante";
-
-}else if(xp >= 6001 && xp <= 7000){
-  nivel = "Ouro";
-
-}else if(xp >= 7001 && xp <= 8000){
-    nivel = "Platina";
-
-}else if(xp >= 8001 && xp <= 9000){
-    nivel = "Ascente";
-
-}else if(xp >= 9001 && xp <= 10000){
-    nivel = "Imortal";
-
-}else if(xp >= 10001){
-    nivel = "Radiante"
-
-}else {
-    document.write("Digite um valor válido")
-}
-    document.getElementById("result").textContent = `O Herói ${nome} está no nível ${nivel}`
-    //document.write(`O Herói (na) ${nome} está no nível ${nivel}`)
-}
-
-function limparInput(){
-    document.getElementById("nome").value = " ";
-
-    document.getElementById("xp").value = " ";
-}
+    function limparInput(){
+        document.getElementById("nome").value = " ";
+        document.getElementById("victory").value = " ";
+        document.getElementById("defeat").value = " ";
+    }
+    
