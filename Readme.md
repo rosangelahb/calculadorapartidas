@@ -9,9 +9,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   ![JavaScript](https://img.shields.io/badge/-JavaScript-4F95DA?style=flat&logo=javascript)
   ![Markdown](https://img.shields.io/badge/Markdown-4F95DA?style=flat&logo=markdown)
   
-<br> <br>
-
-<br> <br>
 # 2️⃣ Calculadora de partidas Rankeadas
 **O Que deve ser utilizado**
 
